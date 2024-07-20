@@ -68,9 +68,10 @@ public class DisciplinaController {
     }
 
     @GetMapping("excluir/{codigo}")
-    public void excluir(@PathVariable("codigo") Long codigo, ModelMap model){
+    public String excluir(@PathVariable("codigo") Long codigo, ModelMap model){
         disciplinaService.deletarDisciplinaPorId(codigo);
         model.addAttribute("sucesso", "Disciplina excluído com sucesso!");
+        return "redirect:/disciplinas/listar";
     }
 
     @ModelAttribute("cursos")
