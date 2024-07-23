@@ -3,6 +3,7 @@ package com.thymeleaf.suap.model;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -28,6 +29,9 @@ public class Disciplina {
     @ManyToOne
     @JoinColumn(name = "cod_curso")
     private Curso curso;
+
+    @OneToMany(mappedBy = "disciplina")
+    private List<Matricula> alunos;
 
     public Long getCodigo() {
         return codigo;

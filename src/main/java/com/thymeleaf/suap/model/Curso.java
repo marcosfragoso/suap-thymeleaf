@@ -3,6 +3,8 @@ package com.thymeleaf.suap.model;
 
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
@@ -15,11 +17,13 @@ public class Curso {
     private Long codigo;
 
     @Column
-    @NotNull
+    @NotBlank(message = "Informe o nome do curso.")
+    @Size(min = 4, max = 50, message = "O nome do curso deve ter no mínimo {min} caracteres e no máximo {max} caracteres.")
     private String nome;
 
     @Column
-    @NotNull
+    @NotBlank(message = "Informe a área do curso.")
+    @Size(min = 4, max = 50, message = "A área do curso deve ter no mínimo {min} caracteres e no máximo {max} caracteres.")
     private String area;
 
     public Long getCodigo() {

@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -26,6 +27,9 @@ public class Aluno {
     @ManyToOne
     @JoinColumn(name = "cod_curso")
     private Curso curso;
+
+    @OneToMany(mappedBy = "aluno")
+    private List<Matricula> disciplinas;
 
     public Long getMatricula() {
         return matricula;
