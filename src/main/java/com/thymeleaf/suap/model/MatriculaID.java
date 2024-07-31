@@ -2,10 +2,14 @@ package com.thymeleaf.suap.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Embeddable
+@AllArgsConstructor
+@NoArgsConstructor
 public class MatriculaID implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -17,14 +21,4 @@ public class MatriculaID implements Serializable {
 
     @Column(name = "periodo_matricula")
     private String periodo_matricula;
-
-
-    private MatriculaID() {}
-
-    public MatriculaID(Long matricula_aluno, Long cod_disciplina, String periodo_matricula) {
-        super();
-        this.matricula_aluno = matricula_aluno;
-        this.cod_disciplina = cod_disciplina;
-        this.periodo_matricula = periodo_matricula;
-    }
 }
