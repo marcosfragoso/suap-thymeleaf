@@ -3,7 +3,6 @@ package com.thymeleaf.suap.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.apache.catalina.filters.ExpiresFilter;
 import org.springframework.security.web.authentication.session.SessionAuthenticationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,7 +13,7 @@ public class HomeController {
 
     @GetMapping({"/home"})
     public String home(HttpServletResponse response) {
-        return "/home";
+        return "home";
     }
 
     @GetMapping({"/login", "/"})
