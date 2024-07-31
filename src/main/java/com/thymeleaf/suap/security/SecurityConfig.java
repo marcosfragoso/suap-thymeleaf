@@ -56,9 +56,6 @@ public class SecurityConfig {
                         antMatcher("/professores/**")
                 ).hasAnyAuthority(ADMIN, PROFESSOR)
                 .requestMatchers(
-                        antMatcher("/professores/**")
-                ).hasAnyAuthority(ADMIN, PROFESSOR)
-                .requestMatchers(
                         antMatcher("/home")
                 ).hasAnyAuthority(ADMIN, COORDENADOR, PROFESSOR, ESTUDANTE)
                 .requestMatchers(
@@ -74,7 +71,7 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/login")
                         .deleteCookies("JSESSIONID")
                 ).exceptionHandling((ex) -> ex
-                .accessDeniedPage("acesso-negado")
+                .accessDeniedPage("/acesso-negado")
                 ).rememberMe(
                      Customizer.withDefaults()
                 ).sessionManagement((session) -> session
@@ -82,7 +79,7 @@ public class SecurityConfig {
                         .expiredUrl("/expired")
                         .sessionRegistry(sessionRegistry())
                 ).sessionManagement(session -> session
-                        .invalidSessionUrl("expired")
+                        .invalidSessionUrl("/expired")
                 ).sessionManagement((session) -> session
                         .sessionFixation()
                         .newSession()
