@@ -38,7 +38,7 @@ public class MatriculaController {
 
     @GetMapping("/listar")
     public String listar(ModelMap model) {
-        Map<String, List<Disciplina>> disciplinaPorPeriodo = matriculaService.buscarDisciplinasporPeriodo(alunoService.listarAluno(Long.valueOf(1)));
+        Map<String, List<Disciplina>> disciplinaPorPeriodo = matriculaService.buscarDisciplinasporPeriodo(alunoService.listarAluno(Long.valueOf(4)));
         model.addAttribute("disciplinasPorPeriodo", disciplinaPorPeriodo);
         return "matriculas/lista";
     }
