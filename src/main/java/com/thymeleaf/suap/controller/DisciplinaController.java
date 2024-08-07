@@ -5,16 +5,21 @@ import com.thymeleaf.suap.model.Professor;
 import com.thymeleaf.suap.model.Curso;
 import com.thymeleaf.suap.service.CursoService;
 import com.thymeleaf.suap.service.DisciplinaService;
+import com.thymeleaf.suap.service.JasperService;
 import com.thymeleaf.suap.service.ProfessorService;
 import com.thymeleaf.suap.util.PaginacaoUtil;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +34,9 @@ public class DisciplinaController {
 
     @Autowired
     private ProfessorService professorService;
+
+    @Autowired
+    private JasperService jasperService;
 
     @GetMapping("/cadastrar")
     public String cadastrar(Disciplina disciplina) {
@@ -82,6 +90,19 @@ public class DisciplinaController {
     @ModelAttribute("professores")
     public List<Professor> getProfessores() {
         return professorService.listarProfessores();
+    }
+
+    @GetMapping("listar/diarios/codigo/{codigo}/periodo/{periodo}")
+    public void relatorioDiarios(@PathVariable("periodo") String periodo, @PathVariable("codigo") Long codigo, HttpServletResponse response) throws IOException, SQLException {
+        jasperService.addParams("periodo", periodo.isEmpty() ? null : periodo);
+        jasperService.addParams("codigo_disciplina", codigo);
+        jasperService.addParams("periodo_sub", periodo.isEmpty() ? null : periodo);
+        jasperService.addParams("codigo_disciplina_sub", codigo);
+
+        byte[] bytes = jasperService.exportarPDF("relatorio1");
+        response.setContentType(MediaType.APPLICATION_PDF_VALUE);
+        response.setHeader("Content-disposition", "inline; filename= relatorio1" + codigo + "_" + periodo + ".pdf");
+        response.getOutputStream().write(bytes);
     }
 
 }

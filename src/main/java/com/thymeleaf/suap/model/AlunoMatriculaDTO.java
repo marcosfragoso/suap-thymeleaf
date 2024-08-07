@@ -13,4 +13,5 @@ public class AlunoMatriculaDTO {
     private Long matricula;
     private List<Disciplina> disciplinas;
     private String periodo;
+
 }
