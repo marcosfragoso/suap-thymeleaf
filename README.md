@@ -30,7 +30,19 @@ Este projeto é um sistema simples inspirado em um controle acadêmico, desenvol
 - JasperReports: Ferramenta para geração de relatórios.
   
 - Apache Commons Text: Biblioteca para manipulação de textos e strings.
+
+- Python 3: Linguagem utilizada em scripts auxiliares e automações.
   
 - Playwright: Ferramenta para automação de testes e inserção de dados.
 
 # Como executar
+1. Com o PostgreSQL instalado, configure o mesmo de acordo com o arquivo [application.properties](https://github.com/marcosfragoso/suap-thymeleaf/blob/master/src/main/resources/application.properties)
+2. Em seguida, execute os scripts de configurações iniciais da base de dados [scripts](https://github.com/marcosfragoso/suap-thymeleaf/blob/master/src/main/resources/sql/suap-sql-postgres.sql)
+3. Pronto, a base de dados está configurada e você pode startar o projeto na url `http://localhost:8080/`
+4. Para o uso da automação instale as libs do playwright no terminal:
+     
+   ```
+   pip install pytest-playwright
+   playwright install
+   ```
+5. Pronto, agora está tudo finalizado. Lembrando que a senha para todos os logins é `admin` e que os e-mails você encontra nos [INSERTS](https://github.com/marcosfragoso/suap-thymeleaf/blob/master/src/main/resources/sql/suap-sql-postgres.sql)
