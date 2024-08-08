@@ -2,11 +2,17 @@
 Este projeto é um sistema simples inspirado em um controle acadêmico, desenvolvido para gerenciar informações relacionadas a uma instituição de ensino. O sistema foi projetado para lidar com as principais entidades encontradas em um ambiente acadêmico, incluindo Alunos, Usuários, Professores, Matrículas, Disciplinas e Cursos.
 # Funcionalidades
 - Gerenciamento de Alunos: Cadastro, atualização e consulta de informações dos alunos.
+  
 - Gerenciamento de Usuários: Controle de acesso e permissões através de diferentes perfis de usuário.
+  
 - Gerenciamento de Professores: Cadastro e gerenciamento de informações dos professores.
+  
 - Matrículas: Registro de matrículas dos alunos e histórico.
+  
 - Gerenciamento de Disciplinas: Criação e gerenciamento de disciplinas.
+  
 - Gerenciamento de Cursos: Administração dos cursos oferecidos pela instituição, incluindo a associação de disciplinas.
+  
 # Tecnologias
 - Java 22: Linguagem de programação principal do projeto.
   
@@ -45,4 +51,5 @@ Este projeto é um sistema simples inspirado em um controle acadêmico, desenvol
    pip install pytest-playwright
    playwright install
    ```
-5. Pronto, agora está tudo finalizado. Lembrando que a senha para todos os logins é `admin` e que os e-mails você encontra nos [INSERTS](https://github.com/marcosfragoso/suap-thymeleaf/blob/master/src/main/resources/sql/suap-sql-postgres.sql)
+5. Pronto, agora está tudo finalizado. Lembrando que a senha para todos os logins é `admin` e que os e-mails você encontra nos [INSERTS](https://github.com/marcosfragoso/suap-thymeleaf/blob/master/src/main/resources/sql/suap-sql-postgres.sql).
+6. Agora é só startar o projeto. Caso queira utilizar os scripts de automação, lembre-se de modificar os caminhos onde estão os arquivos .csv de acordo com a sua máquina.
