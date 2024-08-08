@@ -3,7 +3,7 @@ from playwright.sync_api import sync_playwright
 import time
 
 def ler_cursos():
-    abrindo_csv = open('C:\\Users\\Marcos\\Documents\\automacao\\curso.csv', 'r')
+    abrindo_csv = open('D:\\Users\\Marcos\\Documents\\suap-thymeleaf\\src\\main\\resources\playwright\\curso.csv', 'r')
     cursos = csv.reader(abrindo_csv, delimiter=';')
     cursos_lista = []
     
@@ -30,5 +30,5 @@ with sync_playwright() as p:
         pagina.fill('//*[@id="area"]', curso[1])
         pagina.locator('//*[@id="cadastro"]/form/button').click()
     pagina.locator('//*[@id="navbarsExampleDefault"]/a').click()
-    pagina.screenshot(path='cadastroDeCursos.png', full_page=True)
+    pagina.screenshot(path='screenshots/cadastro-cursos.png', full_page=True)
     time.sleep(3)
